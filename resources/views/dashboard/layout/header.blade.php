@@ -68,7 +68,7 @@
     <!-- Navbar Items-->
     <ul class="navbar-nav align-items-center ms-auto">
         <!-- Documentation Dropdown-->
-        <li class="nav-item dropdown no-caret d-none d-md-block me-3">
+        {{-- <li class="nav-item dropdown no-caret d-none d-md-block me-3">
             <a class="nav-link dropdown-toggle" id="navbarDropdownDocs" href="javascript:void(0);" role="button"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="fw-500">Documentation</div>
@@ -102,7 +102,7 @@
                     </div>
                 </a>
             </div>
-        </li>
+        </li> --}}
         <!-- Navbar Search Dropdown-->
         <!-- * * Note: * * Visible only below the lg breakpoint-->
         <li class="nav-item dropdown no-caret me-3 d-lg-none">
@@ -152,8 +152,7 @@
                 </a>
                 <!-- Example Alert 3-->
                 <a class="dropdown-item dropdown-notifications-item" href="#!">
-                    <div class="dropdown-notifications-item-icon bg-danger"><i
-                            class="fas fa-exclamation-triangle"></i>
+                    <div class="dropdown-notifications-item-icon bg-danger"><i class="fas fa-exclamation-triangle"></i>
                     </div>
                     <div class="dropdown-notifications-item-content">
                         <div class="dropdown-notifications-item-content-details">December 8, 2021</div>

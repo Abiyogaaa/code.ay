@@ -25,7 +25,7 @@
                 Dashboard
             </a>
             <a class="nav-link {{ Request::is('dashboard/posts*') ? 'active' : '' }}" href="/dashboard/posts">
-                <div class="nav-link-icon"><i data-feather="shopping-cart"></i></div>
+                <div class="nav-link-icon"><i data-feather="file-text"></i></div>
                 My Posts
             </a>
             @can('admin')
@@ -35,6 +35,27 @@
                     Post Categories
                 </a>
             @endcan
+            @can('admin')
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                    data-bs-target="#appsCollapseUserManagement" aria-expanded="false"
+                    aria-controls="appsCollapseUserManagement">
+                    <div class="nav-link-icon"><i data-feather="user"></i></div>
+                    User Management
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="appsCollapseUserManagement" data-bs-parent="#accordionSidenavAppsMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="user-management-list.html">Users List</a>
+                        <a class="nav-link" href="user-management-edit-user.html">User Roles & Permissions</a>
+                        <a class="nav-link" href="user-management-add-user.html">User Registration Management</a>
+                    </nav>
+                </div>
+            @endcan
+            <div class="sidenav-menu-heading">Help & Support</div>
+            <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" href="/dashboard">
+                <div class="nav-link-icon"><i data-feather="help-circle"></i></div>
+                Contact Support
+            </a>
             <!-- Sidenav Menu Heading (Core)-->
             {{-- <div class="sidenav-menu-heading">Eksplorasi Kuliner</div>
             <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"

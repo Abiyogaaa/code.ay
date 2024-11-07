@@ -25,8 +25,9 @@
                                 <i data-feather="edit"></i> &nbsp;Edit Profile
                             </button>
 
+
                             <!-- Tombol Change Password -->
-                            <a href="#" class="btn btn-secondary mb-2">
+                            <a class="btn btn-secondary mb-2" onclick="toggleChangePassword()">
                                 <i data-feather="lock"></i> &nbsp;Change Password
                             </a>
                         </div>
@@ -67,10 +68,9 @@
                         <p class="text-muted mb-3">{{ $user->username }}</p>
                     </div>
 
-                    <!-- Profile Info Section -->
                     <div class="col-md-8">
-                        <div class="bg-light rounded-3 p-4">
-                            <!-- Basic Info -->
+                        <div id="profileSection" class="bg-light rounded-3 p-4">
+                            <!-- Konten Informasi Dasar -->
                             <div class="mb-4">
                                 <h5 class="text-primary mb-3">Basic Information</h5>
                                 <div class="row g-3">
@@ -91,13 +91,13 @@
                                 </div>
                             </div>
 
-                            <!-- Bio Section -->
+                            <!-- Konten Bio -->
                             <div class="mb-4">
                                 <h5 class="text-primary mb-3">About Me</h5>
                                 <p class="text-muted">{{ $user->bio ?? 'No bio available' }}</p>
                             </div>
 
-                            <!-- Social Media Links -->
+                            <!-- Tautan Sosial Media -->
                             <div>
                                 <h5 class="text-primary mb-3">Social Media</h5>
                                 <div class="d-flex flex-wrap gap-3">
@@ -107,20 +107,17 @@
                                             <i class="fab fa-facebook me-2"></i>Facebook
                                         </a>
                                     @endif
-
                                     @if ($user->twitter)
                                         <a href="{{ $user->twitter }}" class="btn btn-outline-info btn-sm" target="_blank">
                                             <i class="fab fa-twitter me-2"></i>Twitter
                                         </a>
                                     @endif
-
                                     @if ($user->instagram)
                                         <a href="{{ $user->instagram }}" class="btn btn-outline-danger btn-sm"
                                             target="_blank">
                                             <i class="fab fa-instagram me-2"></i>Instagram
                                         </a>
                                     @endif
-
                                     @if ($user->linkedin)
                                         <a href="{{ $user->linkedin }}" class="btn btn-outline-primary btn-sm"
                                             target="_blank">
@@ -130,7 +127,62 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Form Ubah Password (Tersembunyi) -->
+                        <div id="changePasswordSection" class="bg-light rounded-3 p-4" style="display: none;">
+                            <h5 class="text-primary mb-3">Change Password</h5>
+                            <form action="/change-password" method="POST">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="currentPassword" class="form-label">Current Password</label>
+                                    <input type="password"
+                                        class="form-control @error('currentPassword') is-invalid @enderror"
+                                        id="currentPassword" name="currentPassword" required>
+                                    @error('currentPassword')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="newPassword" class="form-label">New Password</label>
+                                    <input type="password" class="form-control @error('newPassword') is-invalid @enderror"
+                                        id="newPassword" name="newPassword" required>
+                                    @error('newPassword')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                                    <input type="password"
+                                        class="form-control @error('confirmPassword') is-invalid @enderror"
+                                        id="confirmPassword" name="confirmPassword" required>
+                                    @error('confirmPassword')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <button type="submit" class="btn btn-info">Save Changes</button>
+                                <button type="button" class="btn btn-secondary"
+                                    onclick="toggleChangePassword()">Cancel</button>
+                            </form>
+                        </div>
                     </div>
+
+                    <script>
+                        function toggleChangePassword() {
+                            const profileSection = document.getElementById('profileSection');
+                            const changePasswordSection = document.getElementById('changePasswordSection');
+
+                            if (profileSection.style.display === 'none') {
+                                profileSection.style.display = 'block';
+                                changePasswordSection.style.display = 'none';
+                            } else {
+                                profileSection.style.display = 'none';
+                                changePasswordSection.style.display = 'block';
+                            }
+                        }
+                    </script>
                 </div>
             </div>
         </div>
@@ -203,7 +255,8 @@
 
 
     <!-- Modal Edit Profile -->
-    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -360,6 +413,42 @@
             </div>
         </div>
     </div>
+
+    {{-- <div class="modal fade" id="changepwModal" tabindex="-1" role="dialog" aria-labelledby="changepwModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!-- Menambahkan modal-dialog-centered untuk menempatkan modal di tengah -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="changepwModalLabel">Change Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="/dashboard/change-password/{{ $user->id }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="pwlama" class="form-label">Current Password</label>
+                            <input type="password" class="form-control" id="pwlama" name="pwlama" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwbaru" class="form-label">New Password</label>
+                            <input type="password" class="form-control" id="pwbaru" name="pwbaru" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwbaru2" class="form-label">Confirm New Password</label>
+                            <input type="password" class="form-control" id="pwbaru2" name="pwbaru2" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Change Password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+ --}}
 
     <script>
         function previewImage() {
