@@ -1,0 +1,405 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css" />
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com/"
+            crossorigin=""
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Work+Sans%3Awght%40400%3B500%3B700%3B900"
+        />
+        <title>HighEndHavens</title>
+        <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Work Sans", "Noto Sans", sans-serif;
+                background-color: #fcfaf8;
+            }
+
+            .container {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 16px 40px;
+                border-bottom: 1px solid #f4eee7;
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+            }
+
+            .home-title {
+                font-size: 1.25rem;
+                font-weight: bold;
+                color: #1c150d;
+            }
+
+            .menu {
+                display: flex;
+                gap: 32px;
+            }
+
+            .menu a {
+                text-decoration: none;
+                color: #1c150d;
+                font-size: 0.875rem;
+                font-weight: 500;
+            }
+
+            .actions {
+                display: flex;
+                gap: 8px;
+            }
+
+            .btn-list-property,
+            .btn-user {
+                padding: 8px 16px;
+                border-radius: 8px;
+                font-size: 0.875rem;
+                font-weight: bold;
+            }
+
+            .btn-list-property {
+                background-color: #f28f0d;
+                color: #1c150d;
+            }
+
+            .btn-user {
+                background-color: #f4eee7;
+                color: #1c150d;
+            }
+
+            .main-content {
+                padding: 40px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero {
+                background-image: linear-gradient(
+                        rgba(0, 0, 0, 0.1),
+                        rgba(0, 0, 0, 0.4)
+                    ),
+                    url("https://cdn.usegalileo.ai/stability/8bdab15f-16cc-4c0d-923b-f4bbd435f435.png");
+                background-size: cover;
+                background-position: center;
+                min-height: 480px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding: 40px;
+                gap: 16px;
+            }
+
+            .hero h1 {
+                color: #ffffff;
+                font-size: 2rem;
+                font-weight: 900;
+            }
+
+            .hero h2 {
+                color: #ffffff;
+                font-size: 1rem;
+            }
+
+            .search-bar {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-top: 20px;
+            }
+
+            .search-icon {
+                background-color: #fcfaf8;
+                padding: 0 16px;
+                display: flex;
+                align-items: center;
+                border: 1px solid #e8ddce;
+                border-right: none;
+                border-radius: 8px 0 0 8px;
+            }
+
+            .search-bar input {
+                flex: 1;
+                padding: 12px 16px;
+                border: 1px solid #e8ddce;
+                border-left: none;
+                background-color: #fcfaf8;
+                font-size: 0.875rem;
+                color: #1c150d;
+            }
+
+            .search-bar button {
+                background-color: #f28f0d;
+                color: #1c150d;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 0 8px 8px 0;
+                font-size: 0.875rem;
+                font-weight: bold;
+            }
+
+            .filter-options {
+                display: flex;
+                justify-content: center;
+                gap: 16px;
+                margin-top: 40px;
+            }
+
+            .filter-options label {
+                font-size: 1.125rem;
+                color: #1c150d;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .filter-options input {
+                appearance: none;
+                width: 20px;
+                height: 20px;
+                border: 2px solid #f28f0d;
+                border-radius: 50%;
+                cursor: pointer;
+                position: relative;
+            }
+
+            .filter-options input:checked::before {
+                content: "";
+                display: block;
+                width: 12px;
+                height: 12px;
+                background-color: #f28f0d;
+                border-radius: 50%;
+                position: absolute;
+                top: 4px;
+                left: 4px;
+            }
+            .featured-section {
+                margin-top: 40px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #1c150d;
+                margin-bottom: 24px;
+            }
+
+            .featured-list {
+                display: flex;
+                justify-content: center;
+                gap: 24px;
+            }
+
+            .featured-item {
+                background-color: #ffffff;
+                border: 1px solid #e8ddce;
+                border-radius: 12px;
+                overflow: hidden;
+                text-align: center;
+                max-width: 200px;
+            }
+
+            .featured-item img {
+                width: 100%;
+                height: auto;
+            }
+
+            .featured-item h4 {
+                font-size: 1.125rem;
+                color: #1c150d;
+                margin: 16px 0;
+            }
+
+            .featured-item p {
+                font-size: 0.875rem;
+                color: #6d5e4a;
+                margin-bottom: 16px;
+            }
+
+            .popular-search-section {
+                margin-top: 40px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .search-list {
+                display: flex;
+                justify-content: center;
+                gap: 16px;
+                flex-wrap: wrap;
+            }
+
+            .search-item {
+                background-color: #f28f0d;
+                color: #1c150d;
+                padding: 12px 24px;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 0.875rem;
+            }
+
+            .search-item:hover {
+                background-color: #e07d00;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header class="header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg
+                            viewBox="0 0 48 48"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <g clip-path="url(#clip0_6_319)">
+                                <path
+                                    d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"
+                                    fill="currentColor"
+                                ></path>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_6_319">
+                                    <rect
+                                        width="48"
+                                        height="48"
+                                        fill="white"
+                                    ></rect>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h2 class="home-title">HighEndHavens</h2>
+                </div>
+                <nav class="menu">
+                    <a href="#">Explore</a>
+                    <a href="#">Offers</a>
+                    <a href="#">Magazine</a>
+                    <a href="#">Community</a>
+                </nav>
+                <div class="actions">
+                    <button class="btn-list-property">
+                        List your property
+                    </button>
+                    <button class="btn-user">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20px"
+                            height="20px"
+                            fill="currentColor"
+                            viewBox="0 0 256 256"
+                        >
+                            <path
+                                d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
+            </header>
+            <div class="main-content">
+                <div class="hero">
+                    <div class="hero-text">
+                        <h1>Find your perfect home</h1>
+                        <h2>
+                            Discover the best homes to rent or buy, from luxury
+                            apartments to spacious family homes
+                        </h2>
+                    </div>
+                    <div class="search-bar">
+                        <div class="search-icon">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20px"
+                                height="20px"
+                                fill="currentColor"
+                                viewBox="0 0 256 256"
+                            >
+                                <path
+                                    d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <input
+                            type="text"
+                            placeholder="Search address, city, or ZIP code"
+                        />
+                        <button>Search</button>
+                    </div>
+                </div>
+                <div class="filter-options">
+                    <label>
+                        <input type="radio" name="filter" checked />
+                        <span>To Rent</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="filter" />
+                        <span>To Buy</span>
+                    </label>
+                </div>
+                <div class="featured-section">
+                    <h3 class="section-title">Featured for you</h3>
+                    <div class="featured-list">
+                        <div class="featured-item">
+                            <img
+                                src="https://via.placeholder.com/200"
+                                alt="Featured 1"
+                            />
+                            <h4>Luxury Apartment</h4>
+                            <p>$1,500/month • 3 Beds • 2 Baths</p>
+                        </div>
+                        <div class="featured-item">
+                            <img
+                                src="https://via.placeholder.com/200"
+                                alt="Featured 2"
+                            />
+                            <h4>Modern House</h4>
+                            <p>$2,300/month • 4 Beds • 3 Baths</p>
+                        </div>
+                        <div class="featured-item">
+                            <img
+                                src="https://via.placeholder.com/200"
+                                alt="Featured 3"
+                            />
+                            <h4>Cozy Condo</h4>
+                            <p>$1,200/month • 2 Beds • 1 Bath</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popular-search-section">
+                    <h3 class="section-title">Popular search</h3>
+                    <div class="search-list">
+                        <a href="#" class="search-item">New York</a>
+                        <a href="#" class="search-item">Los Angeles</a>
+                        <a href="#" class="search-item">San Francisco</a>
+                        <a href="#" class="search-item">Chicago</a>
+                        <a href="#" class="search-item">Miami</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
