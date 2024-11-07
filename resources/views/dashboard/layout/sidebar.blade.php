@@ -182,7 +182,7 @@
     <!-- Sidenav Footer-->
     <div class="sidenav-footer">
         <div class="sidenav-footer-content d-flex align-items-center">
-            <div class="sidenav-footer-subtitle me-2" style="font-size: 1rem;">Logged in as:</div>
+            <div class="sidenav-footer-subtitle me-2" style="font-size: 1rem;">Logged in as: &nbsp;</div>
             <!-- Menjadikan nama pengguna sebagai tombol dropdown -->
             <div class="dropdown">
                 @php

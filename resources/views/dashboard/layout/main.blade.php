@@ -33,17 +33,16 @@
         <div id="layoutSidenav_content">
             <main>
                 <!-- Add this to your layouts/main.blade.php before the main content -->
-                <div id="loading-screen" class="loading-overlay">
-                    <div class="loading-content">
-                        {{-- <div class="loading-image">
-                <img src="" alt="Loading" class="rotating-logo">
-            </div> --}}
-                        <div class="loading-spinner">
-                            <div class="spinner-ring"></div>
+                @if (!session('no_loading'))
+                    <div id="loading-screen" class="loading-overlay">
+                        <div class="loading-content">
+                            <div class="loading-spinner">
+                                <div class="spinner-ring"></div>
+                            </div>
+                            <div class="loading-text">Loading<span class="dots">...</span></div>
                         </div>
-                        <div class="loading-text">Loading<span class="dots">...</span></div>
                     </div>
-                </div>
+                @endif
 
                 <style>
                     .loading-overlay {
@@ -197,6 +196,34 @@
                         });
                     });
                 </script>
+
+
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+                @if (session()->has('success'))
+                    <script>
+                        // SweetAlert2 Toast Notification
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: "top-end",
+                                showConfirmButton: false,
+                                timer: 6000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.addEventListener("mouseenter", Swal.stopTimer);
+                                    toast.addEventListener("mouseleave", Swal.resumeTimer);
+                                }
+                            });
+                            Toast.fire({
+                                icon: "success",
+                                title: "{{ session('success') }}" // Menampilkan pesan dari session
+                            });
+                        });
+                    </script>
+                @endif
+
                 @yield('container')
             </main>
             <footer class="footer-admin mt-auto footer-light">

@@ -25,12 +25,8 @@
                     <span data-feather="plus"></span>&nbsp Create new post
                 </a>
 
-                @if (session()->has('success'))
-                    <div class="alert alert-success alert-dismissible fade show ms-3 flex-grow-1 mb-0" role="alert">
-                        {{ session('success') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                @endif
+
+
             </div>
             <div class="table-responsive">
                 <div class="card-body">

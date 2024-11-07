@@ -68,7 +68,9 @@ class DashboardPostController extends Controller
 
         Post::create($ValidatedData);
 
-        return redirect('/dashboard/posts')->with('success', 'New post has been added!');
+        return redirect('/dashboard/posts')
+            ->with('success', 'New post has been added!');
+        // ->with('no_loading', true);
     }
 
     /**
