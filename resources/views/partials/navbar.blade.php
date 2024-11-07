@@ -2,9 +2,63 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow-sm" style="backdrop-filter: blur(10px);">
     <div class="container">
         <!-- Brand Logo -->
-        <a class="navbar-brand fw-bold" href="#">
-            <span class="text-gradient">CODE.AY</span>
+
+        <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="/dashboard">
+            <div class="modern-logo">
+                <div class="logo-square">
+                    <span class="code">C</span>
+                </div>
+                <span class="brand-name">CODE<span class="highlight">.</span>AY</span>
+            </div>
         </a>
+
+
+        <style>
+            .navbar-brand {
+                font-weight: bold;
+            }
+
+            .modern-logo {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .logo-square {
+                width: 32px;
+                height: 32px;
+                background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 6px rgba(78, 115, 223, 0.1);
+            }
+
+            .logo-square .code {
+                color: white;
+                font-weight: 900;
+                font-size: 18px;
+            }
+
+            .brand-name {
+                font-size: 20px;
+                font-weight: 800;
+                letter-spacing: 1px;
+                color: #2c3e50;
+            }
+
+            .highlight {
+                color: #4e73df;
+                margin: 0 2px;
+            }
+
+            .modern-logo:hover .logo-square {
+                transform: rotate(5deg);
+                transition: transform 0.3s ease;
+            }
+        </style>
+
 
         <!-- Mobile Toggle Button -->
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
