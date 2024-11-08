@@ -1,4 +1,5 @@
 @extends('layouts.main')
+
 @section('container')
     <!-- Hero Section with Parallax Effect -->
     <section class="hero-section position-relative overflow-hidden" style="height: 100vh;">
@@ -25,20 +26,20 @@
                         bermanfaat bagi pembaca.</p>
                     <div class="mt-4 d-flex gap-3">
                         <div class="stat-box bg-light p-4 rounded-3 text-center">
-                            <h3 class="fw-bold text-primary mb-0">1000+</h3>
+                            <h3 class="fw-bold text-dark mb-0">1000+</h3>
                             <p class="small text-muted mb-0">Artikel</p>
                         </div>
                         <div class="stat-box bg-light p-4 rounded-3 text-center">
-                            <h3 class="fw-bold text-primary mb-0">50K+</h3>
+                            <h3 class="fw-bold text-dark mb-0">50K+</h3>
                             <p class="small text-muted mb-0">Pembaca</p>
                         </div>
                     </div>
-                    <a href="/about" class="btn btn-primary btn-lg mt-4 rounded-pill">Pelajari Lebih Lanjut</a>
+                    <a href="/about" class="btn btn-dark btn-lg mt-4 rounded-pill">Pelajari Lebih Lanjut</a>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <div class="position-relative">
                         <img src="{{ asset('img/CODE.AY.svg') }}" alt="Tentang Kami" class="img-fluid rounded-4 shadow-lg">
-                        <div class="position-absolute top-0 start-0 translate-middle bg-primary p-4 rounded-circle">
+                        <div class="position-absolute top-0 start-0 translate-middle bg-dark p-4 rounded-circle">
                             <i class="bi bi-award-fill text-light fs-1"></i>
                         </div>
                     </div>
@@ -124,10 +125,14 @@
 
         .hover-scale {
             transition: transform 0.3s ease;
+            color: #f9f4f4;
+            background-color: #000000;
         }
 
         .hover-scale:hover {
             transform: scale(1.05);
+            color: #f9f4f4;
+            background-color: #000000;
         }
 
         .hover-translate {

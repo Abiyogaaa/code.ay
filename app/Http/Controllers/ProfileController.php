@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
+
 
 class ProfileController extends Controller
 {
@@ -128,5 +130,26 @@ class ProfileController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+    public function updatePassword(Request $request)
+    {
+        // Validasi input
+        $request->validate([
+            'currentPassword' => 'required',
+            'newPassword' => 'required|min:5|confirmed',
+        ]);
+
+        // Verifikasi apakah password saat ini sesuai
+        if (!Hash::check($request->currentPassword, Auth::user()->password)) {
+            return back()->withErrors(['currentPassword' => 'The current password is incorrect.']);
+        }
+
+        // Update password baru
+        $user = Auth::user();
+        $user->password = Hash::make($request->newPassword);
+        $user->save();
+
+        // Redirect kembali dengan pesan sukses
+        return redirect('/dashboard/profile')->with('success', 'Password successfully updated.');
     }
 }

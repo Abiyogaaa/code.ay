@@ -3,7 +3,7 @@
     <div class="container">
         <!-- Brand Logo -->
 
-        <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="/dashboard">
+        <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="/">
             <div class="modern-logo">
                 <div class="logo-square">
                     <span class="code">C</span>
@@ -27,7 +27,7 @@
             .logo-square {
                 width: 32px;
                 height: 32px;
-                background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+                background: linear-gradient(135deg, #040a1c 0%, #01030b 100%);
                 border-radius: 8px;
                 display: flex;
                 align-items: center;
@@ -128,7 +128,7 @@
                             <li>
                                 <form action="/logout" method="post">
                                     @csrf
-                                    <button type="submit" class="dropdown-item py-2 px-4 text-danger">
+                                    <button type="submit" class="dropdown-item py-2 px-4">
                                         <i class="bi bi-box-arrow-right me-2"></i>
                                         Logout
                                     </button>
@@ -163,7 +163,7 @@
 
     /* Brand Logo */
     .text-gradient {
-        background: linear-gradient(45deg, #FF416C, #FF4B2B);
+        background: linear-gradient(45deg, #0f080a, #1f1210);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-size: 1.5rem;
@@ -173,17 +173,17 @@
     .nav-link {
         position: relative;
         font-weight: 500;
-        color: #333 !important;
+        color: #393030 !important;
         transition: all 0.3s ease;
         padding: 0.5rem 1rem !important;
     }
 
     .nav-link:hover {
-        color: #FF416C !important;
+        color: #322428 !important;
     }
 
     .nav-link.active {
-        color: #FF416C !important;
+        color: #100105 !important;
     }
 
     /* Navigation Indicator */
@@ -193,7 +193,7 @@
         right: 1rem;
         bottom: 0;
         height: 2px;
-        background-color: #FF416C;
+        background-color: #0a0506;
         opacity: 0;
         transform: scaleX(0);
         transition: all 0.3s ease;
@@ -210,7 +210,7 @@
         width: 32px;
         height: 32px;
         border-radius: 50%;
-        background: linear-gradient(45deg, #FF416C, #FF4B2B);
+        background: linear-gradient(45deg, #060203, #070403);
         color: white;
         display: flex;
         align-items: center;
@@ -237,7 +237,7 @@
 
     /* Login Button */
     .login-btn {
-        background: linear-gradient(45deg, #FF416C, #FF4B2B);
+        background: linear-gradient(45deg, #171112, #130a09);
         color: white !important;
         border-radius: 50px;
         padding: 0.5rem 1.5rem !important;
@@ -245,7 +245,7 @@
     }
 
     .login-btn.active {
-        background: linear-gradient(45deg, #FF4B2B, #FF416C);
+        background: linear-gradient(45deg, #0f0b0a, #010000);
         /* Warna latar saat active */
         color: white !important;
         /* Warna teks saat active */

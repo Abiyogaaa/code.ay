@@ -41,7 +41,7 @@
 
     <div class="container-xl px-4 mt-n10">
         <div class="card shadow-lg border-0 rounded-lg mb-4">
-            <div class="card-header bg-gradient-secondary-to-secondary text-white">
+            <div class="card-header bg-gradient-secondary-to-secondary text-secondary">
                 <h4 class="mb-0 fw-bold">Profile Information</h4>
             </div>
             <div class="card-body p-4">
@@ -72,19 +72,19 @@
                         <div id="profileSection" class="bg-light rounded-3 p-4">
                             <!-- Konten Informasi Dasar -->
                             <div class="mb-4">
-                                <h5 class="text-primary mb-3">Basic Information</h5>
+                                <h5 class="text-secondary mb-3">Basic Information</h5>
                                 <div class="row g-3">
                                     <div class="col-12">
                                         <p class="mb-2">
-                                            <i class="fas fa-envelope text-primary me-2"></i>
+                                            <i class="fas fa-envelope text-secondary me-2"></i>
                                             <strong>Email:</strong> {{ $user->email }}
                                         </p>
                                         <p class="mb-2">
-                                            <i class="fas fa-phone text-primary me-2"></i>
+                                            <i class="fas fa-phone text-secondary me-2"></i>
                                             <strong>Phone:</strong> {{ $user->phone ?? 'No phone available' }}
                                         </p>
                                         <p class="mb-2">
-                                            <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                                            <i class="fas fa-map-marker-alt text-secondary me-2"></i>
                                             <strong>Address:</strong> {{ $user->address ?? 'No address available' }}
                                         </p>
                                     </div>
@@ -93,13 +93,13 @@
 
                             <!-- Konten Bio -->
                             <div class="mb-4">
-                                <h5 class="text-primary mb-3">About Me</h5>
+                                <h5 class="text-secondary mb-3">About Me</h5>
                                 <p class="text-muted">{{ $user->bio ?? 'No bio available' }}</p>
                             </div>
 
                             <!-- Tautan Sosial Media -->
                             <div>
-                                <h5 class="text-primary mb-3">Social Media</h5>
+                                <h5 class="text-secondary mb-3">Social Media</h5>
                                 <div class="d-flex flex-wrap gap-3">
                                     @if ($user->facebook)
                                         <a href="{{ $user->facebook }}" class="btn btn-outline-primary btn-sm"
@@ -130,8 +130,8 @@
 
                         <!-- Form Ubah Password (Tersembunyi) -->
                         <div id="changePasswordSection" class="bg-light rounded-3 p-4" style="display: none;">
-                            <h5 class="text-primary mb-3">Change Password</h5>
-                            <form action="/change-password" method="POST">
+                            <h5 class="text-dark mb-3 text-center">Change Password</h5>
+                            <form action="{{ route('profile.updatePassword') }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="currentPassword" class="form-label">Current Password</label>
@@ -156,11 +156,12 @@
                                     <label for="confirmPassword" class="form-label">Confirm New Password</label>
                                     <input type="password"
                                         class="form-control @error('confirmPassword') is-invalid @enderror"
-                                        id="confirmPassword" name="confirmPassword" required>
+                                        id="confirmPassword" name="newPassword_confirmation" required>
                                     @error('confirmPassword')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
+
 
                                 <button type="submit" class="btn btn-info">Save Changes</button>
                                 <button type="button" class="btn btn-secondary"
@@ -180,6 +181,7 @@
                             } else {
                                 profileSection.style.display = 'none';
                                 changePasswordSection.style.display = 'block';
+                                document.getElementById('currentPassword').focus();
                             }
                         }
                     </script>

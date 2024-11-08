@@ -40,10 +40,9 @@
             <div class="row align-items-center gy-5">
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="position-relative">
-                        <img src="{{ asset('img/WebDevelopment.jpg') }}" alt="Tim Kami"
-                            class="img-fluid rounded-4 shadow-lg">
+                        <img src="{{ asset('img/CODE.AY.svg') }}" alt="Tim Kami" class="img-fluid rounded-4 shadow-lg">
                         <div
-                            class="experience-badge position-absolute top-0 end-0 translate-middle-y bg-primary text-white p-4 rounded-circle">
+                            class="experience-badge position-absolute top-0 end-0 translate-middle-y bg-dark text-white p-4 rounded-circle">
                             <div class="text-center">
                                 <h4 class="fw-bold mb-0">5+</h4>
                                 <small>Tahun</small>
@@ -53,29 +52,29 @@
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <div class="ps-lg-5">
-                        <h6 class="text-primary text-uppercase fw-bold mb-3">Misi Kami</h6>
+                        <h6 class="text-bold text-uppercase fw-bold mb-3">Misi Kami</h6>
                         <h2 class="display-5 fw-bold mb-4">Memberikan Inspirasi Melalui Konten Berkualitas</h2>
                         <p class="lead text-muted mb-4">Kami berkomitmen untuk menyediakan konten berkualitas tinggi yang
                             memotivasi, menginspirasi, dan memberikan wawasan kepada pembaca.</p>
 
                         <div class="features-grid">
                             <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
-                                <div class="feature-icon bg-primary bg-opacity-10 rounded-3 p-3 mb-3">
-                                    <i class="bi bi-pen text-primary fs-4"></i>
+                                <div class="feature-icon bg-dark bg-opacity-10 rounded-3 p-3 mb-3">
+                                    <i class="bi bi-pen text-dark fs-4"></i>
                                 </div>
                                 <h5 class="fw-bold">Kreativitas dalam Setiap Tulisan</h5>
                                 <p class="text-muted">Setiap artikel ditulis dengan pendekatan kreatif dan unik</p>
                             </div>
                             <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
-                                <div class="feature-icon bg-primary bg-opacity-10 rounded-3 p-3 mb-3">
-                                    <i class="bi bi-people text-primary fs-4"></i>
+                                <div class="feature-icon bg-dark bg-opacity-10 rounded-3 p-3 mb-3">
+                                    <i class="bi bi-people text-dark fs-4"></i>
                                 </div>
                                 <h5 class="fw-bold">Tim Penulis Berpengalaman</h5>
                                 <p class="text-muted">Didukung oleh tim profesional yang ahli di bidangnya</p>
                             </div>
                             <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
-                                <div class="feature-icon bg-primary bg-opacity-10 rounded-3 p-3 mb-3">
-                                    <i class="bi bi-graph-up text-primary fs-4"></i>
+                                <div class="feature-icon bg-dark bg-opacity-10 rounded-3 p-3 mb-3">
+                                    <i class="bi bi-graph-up text-dark fs-4"></i>
                                 </div>
                                 <h5 class="fw-bold">Berbasis Riset dan Data</h5>
                                 <p class="text-muted">Artikel kami didukung oleh penelitian dan data terkini</p>
@@ -91,7 +90,7 @@
     <section class="team-section py-6 bg-light">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
-                <h6 class="text-primary text-uppercase fw-bold mb-3">Tim Kami</h6>
+                <h6 class="text-dark text-uppercase fw-bold mb-3">Tim Kami</h6>
                 <h2 class="display-5 fw-bold">Bertemu dengan Para Penulis</h2>
                 <p class="lead text-muted">Kenali lebih dekat tim yang membuat konten inspiratif untuk Anda</p>
             </div>
@@ -120,7 +119,7 @@
     <!-- Call to Action Section -->
     <section class="cta-section py-6 bg-gradient position-relative overflow-hidden">
         <div class="position-absolute top-0 start-0 w-100 h-100"
-            style="background: linear-gradient(45deg, #2937f0, #9f1ae2);">
+            style="background: linear-gradient(45deg, #04040d, #08030a);">
         </div>
         <div class="container position-relative">
             <div class="row justify-content-center">
@@ -208,7 +207,7 @@
             height: 35px;
             background: white;
             border-radius: 50%;
-            color: #2937f0;
+            color: #000000;
             margin: 0 0.25rem;
             transition: transform 0.3s ease;
         }

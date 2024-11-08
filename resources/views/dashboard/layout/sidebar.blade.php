@@ -46,13 +46,13 @@
                 <div class="collapse" id="appsCollapseUserManagement" data-bs-parent="#accordionSidenavAppsMenu">
                     <nav class="sidenav-menu-nested nav">
                         <a class="nav-link" href="user-management-list.html">Users List</a>
-                        <a class="nav-link" href="user-management-edit-user.html">User Roles & Permissions</a>
+                        <a class="nav-link" href="user-management-edit-user.html">User Roles & &nbsp; Permissions</a>
                         <a class="nav-link" href="user-management-add-user.html">User Registration Management</a>
                     </nav>
                 </div>
             @endcan
             <div class="sidenav-menu-heading">Help & Support</div>
-            <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" href="/dashboard">
+            <a class="nav-link {{ Request::is('help') ? 'active' : '' }}" href="/help">
                 <div class="nav-link-icon"><i data-feather="help-circle"></i></div>
                 Contact Support
             </a>
@@ -217,7 +217,7 @@
 
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="min-width: 200px;">
                     <li><a class="dropdown-item" href="/dashboard/profile">Show Profile</a></li>
-                    <li><a class="dropdown-item" href="/profile/change-password">Change Password</a></li>
+                    {{-- <li><a class="dropdown-item" href="/profile/change-password">Change Password</a></li> --}}
                     <li>
                         <hr class="dropdown-divider">
                     </li>

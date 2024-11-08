@@ -76,4 +76,5 @@ Route::get('/dashboard', function () {
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug']);
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 Route::resource('/dashboard/profile', ProfileController::class)->middleware('auth');
+Route::post('/dashboard/profile/password', [ProfileController::class, 'updatePassword'])->middleware('auth')->name('profile.updatePassword');
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show');

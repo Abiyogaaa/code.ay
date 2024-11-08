@@ -26,7 +26,7 @@
         .logo-square {
             width: 32px;
             height: 32px;
-            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+            background: linear-gradient(135deg, #090c14 0%, #05080e 100%);
             border-radius: 8px;
             display: flex;
             align-items: center;
