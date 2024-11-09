@@ -43,9 +43,11 @@
                     User Management
                     <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <div class="collapse" id="appsCollapseUserManagement" data-bs-parent="#accordionSidenavAppsMenu">
+                <div class="collapse {{ Request::is('dashboard/user*') ? 'show' : '' }}" id="appsCollapseUserManagement"
+                    data-bs-parent="#accordionSidenavAppsMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="user-management-list.html">Users List</a>
+                        <a class="nav-link {{ Request::is('dashboard/user*') ? 'active' : '' }}"
+                            href="/dashboard/user">Users List</a>
                         <a class="nav-link" href="user-management-edit-user.html">User Roles & &nbsp; Permissions</a>
                         <a class="nav-link" href="user-management-add-user.html">User Registration Management</a>
                     </nav>
@@ -222,13 +224,35 @@
                         <hr class="dropdown-divider">
                     </li>
                     <li>
-                        <form action="/logout" method="post">
+                        <form action="/logout" method="post" id="logout-form">
                             @csrf
-                            <button type="submit" class="dropdown-item text-danger">
+                            <button type="button" class="dropdown-item text-danger" onclick="confirmLogout()">
                                 Logout
                             </button>
                         </form>
                     </li>
+
+                    <!-- Add SweetAlert2 CDN in your layout file if not already included -->
+                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                    <script>
+                        function confirmLogout() {
+                            Swal.fire({
+                                title: 'Are you sure?',
+                                text: "You will be logged out from the system!",
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Yes, logout!',
+                                cancelButtonText: 'Cancel'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    document.getElementById('logout-form').submit();
+                                }
+                            });
+                        }
+                    </script>
                 </ul>
             </div>
             <div class="sidenav-footer-icon ms-3">

@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserListController;
 use App\Models\Category;
 use App\Models\User;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -78,3 +79,4 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 Route::resource('/dashboard/profile', ProfileController::class)->middleware('auth');
 Route::post('/dashboard/profile/password', [ProfileController::class, 'updatePassword'])->middleware('auth')->name('profile.updatePassword');
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show');
+Route::resource('/dashboard/user', UserListController::class)->except('show');

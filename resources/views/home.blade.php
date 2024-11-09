@@ -20,7 +20,7 @@
     <section class="about-section py-6">
         <div class="container">
             <div class="row align-items-center gy-5">
-                <div class="col-lg-6" data-aos="fade-right">
+                <div class="col-lg-6 mb-2" data-aos="fade-right">
                     <h2 class="display-4 fw-bold mb-4">Tentang Blog Kami</h2>
                     <p class="lead text-muted">Kami berkomitmen untuk menghadirkan artikel berkualitas tinggi yang
                         bermanfaat bagi pembaca.</p>
@@ -36,7 +36,7 @@
                     </div>
                     <a href="/about" class="btn btn-dark btn-lg mt-4 rounded-pill">Pelajari Lebih Lanjut</a>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
+                <div class="col-lg-6 mx-auto">
                     <div class="position-relative">
                         <img src="{{ asset('img/CODE.AY.svg') }}" alt="Tentang Kami" class="img-fluid rounded-4 shadow-lg">
                         <div class="position-absolute top-0 start-0 translate-middle bg-dark p-4 rounded-circle">

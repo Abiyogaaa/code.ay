@@ -8,8 +8,11 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto mt-4">
                         <h1 class="page-header-title">
+                            @php
+                                $firstName = explode(' ', auth()->user()->name)[0];
+                            @endphp
                             <div class="page-header-icon"><i data-feather="activity"></i></div>
-                            Welcome back,{{ auth()->user()->name }}
+                            Welcome back, {{ $firstName }}
                         </h1>
                         <div class="page-header-subtitle">Silahkan Pilih Restorant dan Menu Makan Yang Anda
                             Suka!

@@ -268,13 +268,38 @@
                     <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
                     Account
                 </a>
-                <form action="/logout" method="post">
+                <!-- Form Logout dengan SweetAlert2 -->
+                <form action="/logout" method="post" id="logout-form">
                     @csrf
-                    <button type="submit" class="dropdown-item">
+                    <button type="button" class="dropdown-item" id="logout-btn">
                         <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
                         Logout
                     </button>
                 </form>
+
+                <!-- SweetAlert2 Script -->
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <script>
+                    document.getElementById('logout-btn').addEventListener('click', function(event) {
+                        event.preventDefault(); // Mencegah pengiriman form otomatis
+
+                        // Menampilkan konfirmasi SweetAlert2
+                        Swal.fire({
+                            title: 'Are you sure you want to logout?',
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, logout!',
+                            cancelButtonText: 'Cancel'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                document.getElementById('logout-form').submit(); // Mengirim form jika dikonfirmasi
+                            }
+                        });
+                    });
+                </script>
+
             </div>
         </li>
     </ul>
