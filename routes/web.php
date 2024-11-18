@@ -7,6 +7,7 @@ use App\Http\Controllers\postController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\HelpController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserListController;
 use App\Models\Category;
@@ -31,6 +32,8 @@ Route::get('/', function () {
         "name" => "abiyoga",
     ]);
 });
+
+
 Route::get('/about', function () {
     return view('about', [
         "title" => "About",
@@ -76,6 +79,7 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug']);
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+Route::resource('/dashboard/help', HelpController::class)->middleware('auth');
 Route::resource('/dashboard/profile', ProfileController::class)->middleware('auth');
 Route::post('/dashboard/profile/password', [ProfileController::class, 'updatePassword'])->middleware('auth')->name('profile.updatePassword');
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show');
