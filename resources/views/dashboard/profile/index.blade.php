@@ -50,7 +50,7 @@
                     <div class="col-md-4 text-center mb-4 mb-md-0">
                         <div class="position-relative d-inline-block">
                             @if (auth()->user()->image)
-                                <img src="{{ Storage::url(auth()->user()->image) }}" alt="Profile Picture"
+                                <img src="{{ asset('storage/' . auth()->user()->image) }}" alt="Profile Picture"
                                     class="img-thumbnail rounded-circle shadow-sm border-3"
                                     style="width: 180px; height: 180px; object-fit: cover;">
                             @else

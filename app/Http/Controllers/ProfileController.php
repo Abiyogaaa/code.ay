@@ -59,7 +59,7 @@ class ProfileController extends Controller
             }
 
             // Simpan gambar baru
-            $validatedData['image'] = $request->file('image')->store('/public/profile-images');
+            $validatedData['image'] = $request->file('image')->store('profile-images', 'public');
         }
 
         // Menyimpan data user
